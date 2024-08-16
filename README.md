@@ -33,7 +33,6 @@
 | commission       | integer | null: false|
 | profit           | integer | null: false|  
 
-
 ### Association
 
 - has_many :users
