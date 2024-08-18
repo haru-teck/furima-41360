@@ -29,9 +29,10 @@
 | status_id          | integer  | null: false|
 | shipping_fee_id    | integer  | null: false|
 | shipping_source_id | integer  | null: false|
+| ship_days_id       | integer  | null: false|
 | information        | text     | null: false|
 | price              | integer  | null: false|
-| user_id            | integer  | null: false, foreign_key:true| 
+| user               | references  | null: false, foreign_key:true| 
 
 ### Association
 
@@ -43,8 +44,8 @@
 
 | Column          | Type    | Options                      |
 |-----------------|---------|------------------------------|
-| user_id         | integer | null: false, foreign_key: true   |
-| product_id      | integer | null: false, foreign_key: true   |
+| user            | references  | null: false, foreign_key:true| 
+| product         | references  | null: false, foreign_key:true| 
 
 ### Association
 
@@ -62,7 +63,7 @@
 | street_address     | string  | null: false                  |
 | building_name      | string  |                              |
 | telephone          | string  | null: false                  |
-| history_id         | integer | null: false, foreign_key: true     |
+| history            | references  | null: false, foreign_key:true| 
 
 ### Association
 
