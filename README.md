@@ -3,7 +3,7 @@
 ## users テーブル
 
 | Column             | Type   | Options                      |
-|---------------   --|--------|------------------------------|
+|--------------------|--------|------------------------------|
 | nickname           | string | null: false                  |
 | email              | string | null: false, unique: true    |
 | encrypted_password | string | null: false, default: ""     |  
@@ -23,13 +23,13 @@
 ## products（商品情報） テーブル
 
 | Column             | Type     | Options    |
-|-----------------  -|--------- |------------|
+|--------------------|--------- |------------|
 | title              | string   | null: false|
 | category_id        | integer  | null: false|
 | status_id          | integer  | null: false|
 | shipping_fee_id    | integer  | null: false|
 | shipping_source_id | integer  | null: false|
-| ship_days_id       | integer  | null: false|
+| ship_day_id        | integer  | null: false|
 | information        | text     | null: false|
 | price              | integer  | null: false|
 | user               | references  | null: false, foreign_key:true| 
@@ -40,7 +40,7 @@
 - has_one :history
 - has_one_attached :image
 
-## historys（購入履歴） テーブル
+## histories（購入履歴） テーブル
 
 | Column          | Type    | Options                      |
 |-----------------|---------|------------------------------|
@@ -56,9 +56,9 @@
 ## deliveries（配送先情報） テーブル
 
 | Column             | Type    | Options                      |
-|-----------------   |---------|------------------------------|
+|--------------------|---------|------------------------------|
 | post               | string  | null: false                  |
-| prefectures_id     | integer | null: false                  |
+| prefecture_id      | integer | null: false                  |
 | municipality       | string  | null: false                  |
 | street_address     | string  | null: false                  |
 | building_name      | string  |                              |
