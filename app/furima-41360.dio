@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="i-ca93vDTL8qytIcd7tq" name="ページ1">
-        <mxGraphModel dx="242" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1002" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -13,7 +13,7 @@
                 <mxCell id="50" value="product（商品情報）" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="20" y="310" width="270" height="240" as="geometry"/>
                 </mxCell>
-                <mxCell id="51" value="image（商品画像）&#10;title（商品名）&#10;explanation（商品説明）&#10;cotegory（カテゴリー）&#10;status（商品の状態）&#10;shipping_fee（送料）&#10;shipping_source（発送元の地域）&#10;ship_day（発送までの日数）&#10;information（商品の情報）&#10;price（値段）&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=14;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="50" vertex="1">
+                <mxCell id="51" value="image（商品画像）&#10;title（商品名）&#10;explanation（商品説明）&#10;cotegory（カテゴリー）&#10;status（商品の状態）&#10;shipping_fee（送料）&#10;（発送元の地域）&#10;ship_day（発送までの日数）&#10;information（商品の情報）&#10;price（値段）&#10;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=14;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="50" vertex="1">
                     <mxGeometry y="30" width="270" height="210" as="geometry"/>
                 </mxCell>
                 <mxCell id="61" value="" style="shape=waypoint;sketch=0;size=6;pointerEvents=1;points=[];fillColor=default;resizable=0;rotatable=0;perimeter=centerPerimeter;snapToPoint=1;fontSize=14;fontStyle=0;startSize=30;rounded=1;strokeWidth=2;shadow=0;dashed=0;" parent="50" vertex="1">
@@ -28,7 +28,7 @@
                 <mxCell id="59" value="delivery（配送先情報）" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="390" y="340" width="220" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="60" value="post（郵便番号）&#10;prefectures（都道府県）&#10;municipality（市区町村）&#10;street_address（番地）&#10;building_name（建物名）&#10;telephone（電話番号）&#10;history_id" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=14;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="59" vertex="1">
+                <mxCell id="60" value="post（郵便番号）&#10;prefecture（都道府県）&#10;municipality（市区町村）&#10;street_address（番地）&#10;building_name（建物名）&#10;telephone（電話番号）&#10;history_id" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=14;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="59" vertex="1">
                     <mxGeometry y="30" width="220" height="130" as="geometry"/>
                 </mxCell>
                 <mxCell id="63" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;startArrow=ERzeroToOne;entryX=0.556;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="50" edge="1">
