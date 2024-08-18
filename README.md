@@ -2,80 +2,70 @@
 
 ## users テーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| nickname           | string | null: false, foreign_key: true |
-| email              | string | null: false, unique: true |
-| password           | string | null: false |
-| lastname           | string | null: false |
-| firstname          | string | null: false |
-| firstname          | string | null: false |
-| lastname_yomi      | string | null: false |
-| firstname_yomi     | string | null: false |
-| firstname          | string | null: false |
-| birthday           | integer | null: false |
-| intoroduce         | text | null: false |
+| Column             | Type   | Options                      |
+|--------------------|--------|------------------------------|
+| nickname           | string | null: false                  |
+| email              | string | null: false, unique: true    |
+| encrypted_password | string | null: false, default: ""     |  
+| lastname           | string | null: false                  |
+| firstname          | string | null: false                  |
+| lastname_yomi      | string | null: false                  |
+| firstname_yomi     | string | null: false                  |
+| birthday           | date   | null: false                  |
+
+### Association
+
+- has_many :products
+- has_many :histories
 
 
 
+## products（商品情報） テーブル
 
+| Column             | Type     | Options    |
+|--------------------|--------- |------------|
+| title              | string   | null: false|
+| category_id        | integer  | null: false|
+| status_id          | integer  | null: false|
+| shipping_fee_id    | integer  | null: false|
+| prefecture_id      | integer  | null: false|
+| ship_day_id        | integer  | null: false|
+| information        | text     | null: false|
+| price              | integer  | null: false|
+| user               | references  | null: false, foreign_key:true| 
 
-## product（商品） テーブル
+### Association
 
-| Column             | Type       | Options     |
-| ------             | ------     | ----------- |
-| title              | string    | null: false, foreign_key: true |
-| price              | integer | null: false | 
-| explanation        | text | null: false |
-| status             | string | null: false |
-| size               | string | null: false |
-| cotegory           | string | null: false |
-| shipping_fee       | integer | null: false |
-| shipping_source    | string | null: false |
-| days               | integer | null: false |
+- belongs_to :user
+- has_one :history
+- has_one_attached :image
 
+## histories（購入履歴） テーブル
 
-## buyer（購入者）） テーブル
+| Column          | Type    | Options                      |
+|-----------------|---------|------------------------------|
+| user            | references  | null: false, foreign_key:true| 
+| product         | references  | null: false, foreign_key:true| 
 
- Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| nickname           | string | null: false, foreign_key: true |
-| email              | string | null: false, unique: true |
-| password           | string | null: false |
-| lastname           | string | null: false |
-| firstname          | string | null: false |
-| firstname          | string | null: false |
-| lastname_yomi      | string | null: false |
-| firstname_yomi     | string | null: false |
-| firstname          | string | null: false |
-| birthday           | integer | null: false |
-| intoroduce         | text | null: false |
-| post               | integer | null: false |
-| prefectures        | string | null: false |
-| municipalities     | string | null: false |
-| intoroduce         | string | null: false |
-| street_address     | string | null: false |
-| building_name      | string | |
-| telephone          | integer | null: false |
+### Association
 
+-belongs_to :user
+-belongs_to :product
+-has_one :delivery
 
+## deliveries（配送先情報） テーブル
 
+| Column             | Type    | Options                      |
+|--------------------|---------|------------------------------|
+| post               | string  | null: false                  |
+| prefecture_id      | integer | null: false                  |
+| municipality       | string  | null: false                  |
+| street_address     | string  | null: false                  |
+| building_name      | string  |                              |
+| telephone          | string  | null: false                  |
+| history            | references  | null: false, foreign_key:true| 
 
+### Association
 
+- belongs_to :history
 
-
-
-## room_users テーブル
-
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
-
-## messages テーブル
-
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| content | string     |                                |
-| user    | references | null: false, foreign_key: true |
-| room    | references | null: false, foreign_key: true |
