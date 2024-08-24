@@ -19,3 +19,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+import "item_price"
