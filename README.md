@@ -25,6 +25,7 @@
 | Column             | Type     | Options    |
 |--------------------|--------- |------------|
 | title              | string   | null: false|
+| explanation        | text     | null: false|
 | category_id        | integer  | null: false|
 | status_id          | integer  | null: false|
 | shipping_fee_id    | integer  | null: false|
