@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create,]
   def index
-    # 必要に応じてここにデータベースからアイテムを取得するためのコードを追加します
+    @items = Item.all 
   end
 
   def new
