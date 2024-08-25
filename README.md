@@ -15,16 +15,17 @@
 
 ### Association
 
-- has_many :products
+- has_many :items
 - has_many :histories
 
 
 
-## products（商品情報） テーブル
+## items（商品情報） テーブル
 
 | Column             | Type     | Options    |
 |--------------------|--------- |------------|
 | title              | string   | null: false|
+| explanation        | text     | null: false|
 | category_id        | integer  | null: false|
 | status_id          | integer  | null: false|
 | shipping_fee_id    | integer  | null: false|
@@ -45,12 +46,12 @@
 | Column          | Type    | Options                      |
 |-----------------|---------|------------------------------|
 | user            | references  | null: false, foreign_key:true| 
-| product         | references  | null: false, foreign_key:true| 
+| items         | references  | null: false, foreign_key:true| 
 
 ### Association
 
 -belongs_to :user
--belongs_to :product
+-belongs_to :item
 -has_one :delivery
 
 ## deliveries（配送先情報） テーブル
