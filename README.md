@@ -15,7 +15,7 @@
 
 ### Association
 
-- has_many :itmes
+- has_many :items
 - has_many :histories
 
 
