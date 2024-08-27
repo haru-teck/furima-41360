@@ -21,15 +21,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    @item = Item.find
   end
 
   def edit
-    @item = Item.find(params[:id])
+    @item = Item.find
   end
 
   def update
-    @item = Item.find(params[:id])
+    @item = Item.find
     if @item.update(item_params)
       redirect_to @item
     else
