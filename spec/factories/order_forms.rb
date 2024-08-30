@@ -6,5 +6,6 @@ FactoryBot.define do
     street_address { '1-1' }
     building_name { '東京ハイツ' }
     telephone { '09012345678' }
+    token { Faker::Internet.uuid }
   end
 end

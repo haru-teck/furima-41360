@@ -38,11 +38,8 @@
       <%# ログインしているユーザーが出品者でない場合 %>
        <%= link_to "購入画面に進む", item_orders_path(@item), data: { turbo: false }, class:"item-red-btn"%>
         <% end %>
-      <% else %>
-      <%# ログアウト状態のユーザーにも購入ボタンを表示 %>
-    <%= link_to "購入画面に進む", item_orders_path(@item), data: {turbo: false}, class:"item-red-btn" %>
-   <% end %>
-<% end %>
+      <% end %>
+     <% end %>
 
 
     <div class="item-explain-box">

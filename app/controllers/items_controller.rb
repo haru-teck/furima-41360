@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create,:edit, :update]
-  before_action :set_item, only: [:show, :edit, :update]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:new, :create,:edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :redirect_if_sold, only: [:edit, :update, :show]
 
   def index
@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update
@@ -36,12 +37,11 @@ class ItemsController < ApplicationController
     end
   end
 
-  def sold?
-    
-    order.present?
+  def destroy
+    @item.destroy
+    redirect_to root_path
   end
-
-  
+ 
 
   private
 
