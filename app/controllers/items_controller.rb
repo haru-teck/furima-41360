@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create,:edit, :update]
+
+  before_action :authenticate_user!, only: [:new, :create,:edit, :update, :destroy]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update,:destroy]
-  
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :redirect_if_sold, only: [:edit, :update]
+
 
   def index
     @items = Item.order(created_at: :desc)
@@ -21,12 +23,11 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-    
-  end
+  def show  end
 
   def edit
-   
+    
+
   end
 
   def update
@@ -38,10 +39,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
-      redirect_to root_path
-    end
+
+    @item.destroy
+    redirect_to root_path
   end
+ 
 
   private
 
@@ -52,6 +54,12 @@ class ItemsController < ApplicationController
   ## correct_userで出品者チェックする
   def correct_user
     unless @item.user_id == current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def redirect_if_sold
+    if @item.sold?
       redirect_to root_path
     end
   end

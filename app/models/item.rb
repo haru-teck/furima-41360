@@ -12,12 +12,17 @@ class Item < ApplicationRecord
   validates :image, presence: true
 
   belongs_to :user
-
+  has_one :history 
   has_one_attached :image
   belongs_to_active_hash :category
   belongs_to_active_hash :status
   belongs_to_active_hash :shipping_fee
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :ship_day
+
+  def sold?
+    history.present?
+  end
+
 
 end

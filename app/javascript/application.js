@@ -20,3 +20,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 import "item_price"
+import "card"
