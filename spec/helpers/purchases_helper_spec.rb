@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+module PurchasesHelper
 # Specs in this file have access to a helper object that includes
 # the PurchasesHelper. For example:
 #

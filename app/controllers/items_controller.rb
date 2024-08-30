@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create,:edit, :update]
   before_action :set_item, only: [:show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
-  
+  before_action :redirect_if_sold, only: [:show]
+
   def index
     @items = Item.order(created_at: :desc)
   end
@@ -21,7 +22,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
@@ -37,6 +37,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def sold?
+    # ロジックを確認してください
+    # 例えば、売り切れかどうかを判定するカラムがある場合
+    order.present?
+  end
+
+  
+
   private
 
   def set_item
@@ -46,6 +54,12 @@ class ItemsController < ApplicationController
   ## correct_userで出品者チェックする
   def correct_user
     unless @item.user_id == current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def redirect_if_sold
+    if @item.sold?
       redirect_to root_path
     end
   end

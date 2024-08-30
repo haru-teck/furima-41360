@@ -8,29 +8,29 @@
     </h2>
     <div class="item-img-content">
       <%= image_tag @item.image ,class:"item-box-img" %>
-      <%# 商品が売れている場合は、sold outを表示しましょう %>
-      <div class="sold-out">
-        <span>Sold Out!!</span>
-      </div>
-      <%# //商品が売れている場合は、sold outを表示しましょう %>
+
+      <%# 商品が売れている場合は、sold outを表示する %>
+      <% if @item.sold? %>
+        <div class='sold-out'>
+          <span>Sold Out!!</span>
+        </div>
+      <% end %>
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        <%= @item.price%>円
+        <%= @item.price %>円
       </span>
       <span class="item-postage">
         <%= @item.shipping_fee.name %>
       </span>
     </div>
-
-    
-
-    <%# 商品が売れていない場合 %>
-
+      
+  
+     <%# 商品が売れていない場合のみ、以下のボタンを表示する %>
+     <% if !@item.sold? %> 
       <% if user_signed_in? %>
-       <% if current_user.id == @item.user_id %>
-
-      <%# ログインしているユーザーが出品者の場合 %>
+        <% if current_user.id == @item.user_id %>
+     <%# ログインしているユーザーが出品者の場合 %>
        <%= link_to "商品の編集", edit_item_path(@item), local: true, method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
        <%= link_to "削除", "#", data: {turbo_method: :delete}, class:"item-destroy" %>
@@ -38,9 +38,12 @@
       <%# ログインしているユーザーが出品者でない場合 %>
        <%= link_to "購入画面に進む", item_orders_path(@item), data: { turbo: false }, class:"item-red-btn"%>
         <% end %>
-      <% end %>
-      <%# ログアウト状態のユーザーにはボタンを表示しない %>
-    
+      <% else %>
+      <%# ログアウト状態のユーザーにも購入ボタンを表示 %>
+    <%= link_to "購入画面に進む", item_orders_path(@item), data: {turbo: false}, class:"item-red-btn" %>
+   <% end %>
+<% end %>
+
 
     <div class="item-explain-box">
       <span><%= @item.explanation %></span>
@@ -84,7 +87,7 @@
       </div>
     </div>
   </div>
-  <%# /商品の概要 %>
+  
 
   <div class="comment-box">
     <form>
@@ -113,4 +116,5 @@
   
 </div>
 
-<%= render "shared/footer" %>
+ <%= render "shared/footer" %>
+
