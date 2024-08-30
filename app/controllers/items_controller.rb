@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create,:edit, :update]
   before_action :set_item, only: [:show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
-  before_action :redirect_if_sold, only: [:show]
+  before_action :redirect_if_sold, only: [:edit, :update, :show]
 
   def index
     @items = Item.order(created_at: :desc)
@@ -25,7 +25,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find
   end
 
   def update
@@ -38,8 +37,7 @@ class ItemsController < ApplicationController
   end
 
   def sold?
-    # ロジックを確認してください
-    # 例えば、売り切れかどうかを判定するカラムがある場合
+    
     order.present?
   end
 
