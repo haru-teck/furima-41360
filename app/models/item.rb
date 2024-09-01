@@ -24,5 +24,5 @@ class Item < ApplicationRecord
     history.present?
   end
 
-
+  
 end
